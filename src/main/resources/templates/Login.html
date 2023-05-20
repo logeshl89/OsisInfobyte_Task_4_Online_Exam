@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+        }
+
+        .login-form h2 {
+            color: #444;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        .form-control label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-control input {
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            display: block;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-control input:focus {
+            border-color: #0078ff;
+            outline: none;
+        }
+
+        .btn {
+            background-color: #0078ff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #0064d9;
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-footer a {
+            color: #0078ff;
+            font-size: 14px;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .form-footer span {
+            color: #444;
+            font-size: 14px;
+
+            padding: 20px;
+
+            margin-left: 10px;
+        }
+
+        div h5 {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="login-form">
+        <h2>Login</h2>
+        <form method="post" action="/api/login">
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required/>
+                <span class="error" id="username-error"></span>
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required/>
+                <span class="error" id="password-error"></span>
+            </div>
+            <button class="btn" id="login-btn">Login</button>
+        </form>
+        <div>
+            <h5 th:text="${error}"></h5>
+        </div>
+        <div class="form-footer">
+            <a href="#">Forgot password?</a>
+            <br>
+            <span>Don't have an account? <a href="#">Sign up</a></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginBtn = document.getElementById('login-btn');
+    const usernameError = document.getElementById('username-error');
+    const passwordError = document.getElementById('password-error');
+
+    loginBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Reset errors
+        usernameError.innerText = '';
+        passwordError.innerText = '';
+
+        // Validate username
+        if (usernameInput.value === '') {
+            usernameError.innerText = 'Please enter a username';
+            return;
+        }
+
+        // Validate password
+        if (passwordInput.value === '') {
+            passwordError.innerText = 'Please enter a password';
+            return;
+        }
+
+        // If all validations pass, submit the form
+        document.querySelector('form').submit();
+    });
+
+
+</script>
+</body>
+</html>

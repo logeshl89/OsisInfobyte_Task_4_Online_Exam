@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App - Exam Instructions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  <style>
+
+  </style>
+</head>
+<body>
+<div class="Main-container">
+  <!-- Exam instructions section -->
+  <div class="Instruction-container">
+    <h2>Exam Instructions</h2>
+    <ul>
+      <li>Ensure a stable internet connection throughout the duration of the exam.</li>
+      <li>Do not refresh the page or navigate away from the exam while attempting the questions.</li>
+      <li>You have a total of 2 minutes  to complete the exam.</li>
+      <li>The exam consists of multiple-choice questions.</li>
+      <li>Each question has four options, and you need to select the correct one.</li>
+      <li>Click the "Next" button to submit your answer and proceed to the next question.</li>
+      <li>You can only select one option per question.</li>
+      <li>The timer on the top right corner of the page shows the remaining time for the exam.</li>
+      <li>Once the timer reaches 0, the exam will automatically be submitted.</li>
+      <li>Ensure that you have answered all the questions before the time runs out.</li>
+      <li>In case of any technical issues, contact the support team immediately.</li>
+      <li>Click the "Start Exam" button below to begin the exam.</li>
+    </ul>
+  </div>
+  <div class="Start-exam-container">
+    <button class="btn btn-primary" onclick="startExam()">Start Exam</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script>
+  function startExam() {
+    window.location.href = "/api/questions/1";
+  }
+</script>
+</body>
+</html>
